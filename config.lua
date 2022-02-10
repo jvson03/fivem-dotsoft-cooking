@@ -12,7 +12,7 @@ Config.Distance = 1.5
 -- The keybind for using the stove. (https://docs.fivem.net/docs/game-references/controls/)
 Config.Keybinds = 54 -- E
 
--- If you want to use normal ESX notifications set this to false
+-- If you want to use okokNotify set this to true
 Config.UseOkOkNotify = false
 
 -- Aligns the ESX Menu in the screen. Default - 'left'
