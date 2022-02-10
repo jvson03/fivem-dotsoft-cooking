@@ -16,6 +16,7 @@ end)
 ESX.RegisterServerCallback("dotsoft_cooking:checkStoveIngredients", function(source, cb, recipe)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
+    local enough = false
     for k, v in ipairs(Config['StoveRecipes']) do
         if v['recipe'] == recipe['recipe'] then
             local enough = false
@@ -26,9 +27,11 @@ ESX.RegisterServerCallback("dotsoft_cooking:checkStoveIngredients", function(sou
                     break
                 end
             end
-            if enough == false then
+            if enough == true then
                 for k2, v2 in ipairs(v['ingredients']) do
-                    xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    if enough == true then
+                        xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    end
                 end
                 cb(true)
             end
@@ -40,9 +43,9 @@ end)
 ESX.RegisterServerCallback("dotsoft_cooking:checkToasterIngredients", function(source, cb, recipe)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
+    local enough = false
     for k, v in ipairs(Config['ToasterRecipes']) do
         if v['recipe'] == recipe['recipe'] then
-            local enough = false
             for k1, v1 in ipairs(v['ingredients']) do
                 if not (xPlayer.getInventoryItem(Config.Items[v1.ingredient]).count >= v1["amount"]) then
                     enough = false
@@ -50,9 +53,11 @@ ESX.RegisterServerCallback("dotsoft_cooking:checkToasterIngredients", function(s
                     break
                 end
             end
-            if enough == false then
+            if enough == true then
                 for k2, v2 in ipairs(v['ingredients']) do
-                    xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    if enough == true then
+                        xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    end
                 end
                 cb(true)
             end
@@ -64,19 +69,23 @@ end)
 ESX.RegisterServerCallback("dotsoft_cooking:checkMIngredients", function(source, cb, recipe)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
+    local enough = false
     for k, v in ipairs(Config['MicroRecipes']) do
         if v['recipe'] == recipe['recipe'] then
-            local enough = false
             for k1, v1 in ipairs(v['ingredients']) do
                 if not (xPlayer.getInventoryItem(Config.Items[v1.ingredient]).count >= v1["amount"]) then
                     enough = false
                     cb(false)
                     break
+                else
+                    enough = true
                 end
             end
-            if enough == false then
+            if enough == true then
                 for k2, v2 in ipairs(v['ingredients']) do
-                    xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    if enough == true then
+                        xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
+                    end
                 end
                 cb(true)
             end

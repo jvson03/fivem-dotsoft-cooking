@@ -182,7 +182,7 @@ function OpenToasterMenu()
 					if status then
 						menu.close()
 						FreezeEntityPosition(ped, true)
-						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_BBQ', 0, false)
+						TaskStartScenarioInPlace(ped, 'WORLD_HUMAN_STAND_IMPATIENT', 0, false)
 						Citizen.Wait(Config.CookingTime)
 						-- Give the final product here
 						TriggerServerEvent('dotsoft_cooking:finalProduct', ev.current.value.item)
@@ -224,7 +224,7 @@ function OpenMicroMenu()
 					if status then
 						menu.close()
 						FreezeEntityPosition(ped, true)
-						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_BBQ', 0, false)
+						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_ATM', 0, false)
 						Citizen.Wait(Config.CookingTime)
 						-- Give the final product here
 						TriggerServerEvent('dotsoft_cooking:finalProduct', ev.current.value.item)
@@ -293,26 +293,29 @@ Citizen.CreateThread(function()
 		Citizen.Wait(4)
 
 		if not isUsing and (isNearStove and GetEntityHealth(isNearStove) > 0) or (isNearToaster and GetEntityHealth(isNearToaster) > 0) or (isNearMicro and GetEntityHealth(isNearMicro) > 0) then
-			if isNearStove then
+			if isNearStove and not isUsing then
 				local stringCoords = GetEntityCoords(isNearStoves)
 				DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 0.4, Config.Strings.EToCookStove)
 				if IsControlJustReleased(0, Config.Keybinds) then
-					OpenStoveMenu()
-					-- print('Works!')
+					if not isUsing then
+						OpenStoveMenu()
+					end
 				end
 			elseif isNearToaster then
 				local tstringCoords = GetEntityCoords(isNearToaster)
 				DrawText3Ds(tstringCoords.x, tstringCoords.y, tstringCoords.z + 0.4, Config.Strings.EToCookToaster)
 				if IsControlJustReleased(0, Config.Keybinds) then
-					OpenToasterMenu()
-					-- print('Works!')
+					if not isUsing then
+						OpenToasterMenu()
+					end
 				end
 			elseif isNearMicro then
 				local mstringCoords = GetEntityCoords(isNearMicro)
 				DrawText3Ds(mstringCoords.x, mstringCoords.y, mstringCoords.z + 0.4, Config.Strings.EToCookMicro)
 				if IsControlJustReleased(0, Config.Keybinds) then
-					OpenMicroMenu()
-					-- print('Works!')
+					if not isUsing then
+						OpenMicroMenu()
+					end
 				end
 			else
 				Citizen.Wait(250)
