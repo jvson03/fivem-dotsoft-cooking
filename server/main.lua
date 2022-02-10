@@ -8,7 +8,7 @@ RegisterServerEvent('dotsoft_cooking:finalProduct')
 AddEventHandler('dotsoft_cooking:finalProduct', function(product)
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(source)
-        xPlayer.addInventoryItem(product, 1)
+        xPlayer.addInventoryItem(product, Config.ProductAmount)
 end)
 
 -- Callbacks
@@ -65,30 +65,6 @@ ESX.RegisterServerCallback("dotsoft_cooking:checkMIngredients", function(source,
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
     for k, v in ipairs(Config['MicroRecipes']) do
-        if v['recipe'] == recipe['recipe'] then
-            local enough = false
-            for k1, v1 in ipairs(v['ingredients']) do
-                if not (xPlayer.getInventoryItem(Config.Items[v1.ingredient]).count >= v1["amount"]) then
-                    enough = false
-                    cb(false)
-                    break
-                end
-            end
-            if enough == false then
-                for k2, v2 in ipairs(v['ingredients']) do
-                    xPlayer.removeInventoryItem(Config.Items[v2.ingredient], v2["amount"])
-                end
-                cb(true)
-            end
-            break
-        end
-    end
-end)
-
-ESX.RegisterServerCallback("dotsoft_cooking:checkCIngredients", function(source, cb, recipe)
-    local _source = source
-    local xPlayer = ESX.GetPlayerFromId(source)
-    for k, v in ipairs(Config['CoffeeRecipes']) do
         if v['recipe'] == recipe['recipe'] then
             local enough = false
             for k1, v1 in ipairs(v['ingredients']) do

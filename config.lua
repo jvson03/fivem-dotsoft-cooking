@@ -1,5 +1,11 @@
 Config = {}
 
+-- The amount of items it gives you after you have finished cooking.
+Config.ProductAmount = 1
+
+-- The time it takes for the player to cook (ms)
+Config.CookingTime = 15000
+
 -- The distance required for the 3D test to be created.
 Config.Distance = 1.5
 
@@ -7,10 +13,16 @@ Config.Distance = 1.5
 Config.Keybinds = 54 -- E
 
 -- If you want to use normal ESX notifications set this to false
-Config.UseOkOkNotify = true
+Config.UseOkOkNotify = false
+
+-- Aligns the ESX Menu in the screen. Default - 'left'
+Config.MenuAlign = 'left'
 
 -- Strings, edit these if you want to translate to another language.
 Config.Strings = {
+    StoveMenu = "Stove Menu",
+    ToasterMenu = "Toaster Menu",
+    MicroMenu = "Microwave Menu",
     EToCookStove = "~b~Press ~y~[E]~b~ to use the stove.",
     EToCookToaster = "~b~Press ~y~[E]~b~ to use the toaster.",
     EToCookMicro = "~b~Press ~y~[E]~b~ to use the microwave.",

@@ -126,8 +126,8 @@ function OpenStoveMenu()
     isUsing = true
     ESX.UI.Menu.Open('default',GetCurrentResourceName(),'stove_menu',
         {
-            ['title'] = 'Stove Menu',
-            ['align'] = 'left', 
+            ['title'] = Config.Strings.StoveMenu,
+            ['align'] = Config.MenuAlign, 
             ['elements'] = itable
         },
         function(ev, menu)
@@ -137,7 +137,7 @@ function OpenStoveMenu()
 						menu.close()
 						FreezeEntityPosition(ped, true)
 						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_BBQ', 0, false)
-						Citizen.Wait(15000)
+						Citizen.Wait(Config.CookingTime)
 						-- Give the final product here
 						TriggerServerEvent('dotsoft_cooking:finalProduct', ev.current.value.item)
 						local objCloseBy = GetClosestObjectOfType('prop_fish_slice_01', GetEntityCoords(PlayerPedId()))
@@ -172,8 +172,8 @@ function OpenToasterMenu()
     isUsing = true
     ESX.UI.Menu.Open('default',GetCurrentResourceName(),'toaster_menu',
         {
-            ['title'] = 'Toaster Menu',
-            ['align'] = 'left', 
+            ['title'] = Config.Strings.ToasterMenu,
+            ['align'] = Config.MenuAlign, 
             ['elements'] = itable
         },
         function(ev, menu)
@@ -183,7 +183,7 @@ function OpenToasterMenu()
 						menu.close()
 						FreezeEntityPosition(ped, true)
 						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_BBQ', 0, false)
-						Citizen.Wait(15000)
+						Citizen.Wait(Config.CookingTime)
 						-- Give the final product here
 						TriggerServerEvent('dotsoft_cooking:finalProduct', ev.current.value.item)
 						ClearPedTasks(ped)
@@ -214,8 +214,8 @@ function OpenMicroMenu()
     isUsing = true
     ESX.UI.Menu.Open('default',GetCurrentResourceName(),'microwave_menu',
         {
-            ['title'] = 'Microwave Menu',
-            ['align'] = 'left', 
+            ['title'] = Config.Strings.MicroMenu,
+            ['align'] = Config.MenuAlign, 
             ['elements'] = itable
         },
         function(ev, menu)
@@ -225,7 +225,7 @@ function OpenMicroMenu()
 						menu.close()
 						FreezeEntityPosition(ped, true)
 						TaskStartScenarioInPlace(ped, 'PROP_HUMAN_BBQ', 0, false)
-						Citizen.Wait(15000)
+						Citizen.Wait(Config.CookingTime)
 						-- Give the final product here
 						TriggerServerEvent('dotsoft_cooking:finalProduct', ev.current.value.item)
 						ClearPedTasks(ped)
