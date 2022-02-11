@@ -330,17 +330,11 @@ end)
 
 function DrawText3Ds(x, y, z, text)
 	if text then
-		local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-		local pX, pY, pZ = table.unpack(GetGameplayCamCoords())
-		SetTextScale(0.35, 0.35)
-		SetTextFont(4)
-		SetTextProportional(1)
-		SetTextEntry("STRING")
-		SetTextCentre(true)
-		SetTextColour(255, 255, 255, 215)
-		AddTextComponentString(text)
-		DrawText(_x, _y)
-		local factor = (string.len(text)) / 700
-		DrawRect(_x, _y + 0.0150, 0.095 + factor, 0.03, 41, 11, 41, 100)
+		local coords = vector3(x, y, z)
+		AddTextEntry('HelpText', text)
+		SetFloatingHelpTextWorldPosition(1, coords)
+		SetFloatingHelpTextStyle(1, 1, 2, -1, 3, 0)
+		BeginTextCommandDisplayHelp('HelpText')
+		EndTextCommandDisplayHelp(2, false, false, -1)
 	end
 end
