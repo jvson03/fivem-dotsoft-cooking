@@ -1,3 +1,4 @@
+![Artboard_1](https://user-images.githubusercontent.com/62374878/153714258-b98e75ca-8be6-4ccc-9d51-e9d273d2abca.png)
 ## dotsoft_cooking (Cooking Simulator)
 
 Allow your players to cook their own meals by following recipes.
@@ -18,3 +19,7 @@ Allow your players to cook their own meals by following recipes.
 - Drop the icons in your inventory resource.
 - Add `ensure dotsoft_cooking` to your server.cfg
 - Start your server and enjoy!
+
+## Support
+
+Discord - https://discord.gg/ZAmVQFmbsp
