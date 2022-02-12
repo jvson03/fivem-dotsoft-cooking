@@ -26,7 +26,8 @@ Config.Strings = {
     EToCookStove = "~b~Press ~y~[E]~b~ to use the stove.",
     EToCookToaster = "~b~Press ~y~[E]~b~ to use the toaster.",
     EToCookMicro = "~b~Press ~y~[E]~b~ to use the microwave.",
-    WrongIngredients = "You are missing some ingredients."
+    WrongIngredients = "You are missing some ingredients.",
+    NotEnoughSpace = "You do not have enough inventory space."
 }
 
 -- The stove objects. Use hash keys. (https://gtahash.ru/)

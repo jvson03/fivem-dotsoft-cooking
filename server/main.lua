@@ -8,9 +8,17 @@ RegisterServerEvent('dotsoft_cooking:finalProduct')
 AddEventHandler('dotsoft_cooking:finalProduct', function(product)
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(source)
-        xPlayer.addInventoryItem(product, Config.ProductAmount)
+        
+        if xPlayer.canCarryItem(product, Config.ProductAmount) then
+            xPlayer.addInventoryItem(product, Config.ProductAmount)
+        else
+            if Config.UseOkOkNotify then
+                TriggerClientEvent('okokNotify:Alert', source, "Error", Config.Strings.NotEnoughSpace, 2500, 'error')
+            else
+                ESX.ShowNotification(Config.Strings.NotEnoughSpace)
+            end
+        end
 end)
-
 -- Callbacks
 
 ESX.RegisterServerCallback("dotsoft_cooking:checkStoveIngredients", function(source, cb, recipe)
