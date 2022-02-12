@@ -19,3 +19,7 @@ Allow your players to cook their own meals by following recipes.
 - Drop the icons in your inventory resource.
 - Add `ensure dotsoft_cooking` to your server.cfg
 - Start your server and enjoy!
+
+## Support
+
+Discord - https://discord.gg/ZAmVQFmbsp
