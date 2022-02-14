@@ -33,6 +33,8 @@ ESX.RegisterServerCallback("dotsoft_cooking:checkStoveIngredients", function(sou
                     enough = false
                     cb(false)
                     break
+                else
+                    enough = true
                 end
             end
             if enough == true then
@@ -59,6 +61,8 @@ ESX.RegisterServerCallback("dotsoft_cooking:checkToasterIngredients", function(s
                     enough = false
                     cb(false)
                     break
+                else
+                    enough = true
                 end
             end
             if enough == true then
