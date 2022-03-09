@@ -251,7 +251,7 @@ end
 
 Citizen.CreateThread(function()
 	while true do
-		Citizen.Wait(250)
+		Citizen.Wait(0)
 
 		-- Find nearest stove
 		local stoveObject, stoveDistance = FindNearestStove()
