@@ -1,3 +1,5 @@
+-- For older ESX Versions
+
 INSERT INTO `items` (`name`, `label`, `limit`) VALUES
 --  Ingredients
 	('tomato', 'Tomato', 10),

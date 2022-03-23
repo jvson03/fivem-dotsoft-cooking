@@ -6,17 +6,17 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 RegisterServerEvent('dotsoft_cooking:finalProduct')
 AddEventHandler('dotsoft_cooking:finalProduct', function(product)
-        local _source = source
-        local xPlayer = ESX.GetPlayerFromId(source)
-        
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(source)
 
+    if Config.OldESX then
         local xItem = xPlayer.getInventoryItem(product)
         local count = 1
-    
+
         if xItem.limit ~= -1 then
             count = xItem.limit - xItem.count
         end
-    
+
         if xItem.count < xItem.limit then
             xPlayer.addInventoryItem(product, Config.ProductAmount)
         else
@@ -26,6 +26,17 @@ AddEventHandler('dotsoft_cooking:finalProduct', function(product)
                 ESX.ShowNotification(Config.Strings.NotEnoughSpace)
             end
         end
+    else
+        if xPlayer.canCarryItem(product, Config.ProductAmount) then
+            xPlayer.addInventoryItem(product, Config.ProductAmount)
+        else
+            if Config.UseOkOkNotify then
+                TriggerClientEvent('okokNotify:Alert', source, "Error", Config.Strings.NotEnoughSpace, 2500, 'error')
+            else
+                ESX.ShowNotification(Config.Strings.NotEnoughSpace)
+            end
+        end
+    end
 end)
 -- Callbacks
 

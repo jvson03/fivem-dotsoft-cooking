@@ -1,5 +1,11 @@
 Config = {}
 
+-- Before you move on, import the sql file. For old esx versions import oldesx.sql,
+-- for new versions use newesx.sql.
+
+-- Set to true if your ESX uses item limit instead of weight.
+Config.OldESX = false
+
 -- The amount of items it gives you after you have finished cooking.
 Config.ProductAmount = 1
 

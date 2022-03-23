@@ -16,7 +16,7 @@ Allow your players to cook their own meals by following recipes.
 
 - Extract the ```dotsoft_cooking``` folder
 - Drop it inside your resources folder
-- Import the ```items.sql``` file in your server database
+- Import the ```oldesx.sql``` if you are running on an old esx version and import ```newesx.sql``` if you are running a newer version.
 - Drop the icons in your inventory resource.
 - Add ```ensure dotsoft_cooking``` to your server.cfg
 - Start your server and enjoy!
