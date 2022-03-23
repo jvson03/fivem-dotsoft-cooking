@@ -9,7 +9,15 @@ AddEventHandler('dotsoft_cooking:finalProduct', function(product)
         local _source = source
         local xPlayer = ESX.GetPlayerFromId(source)
         
-        if xPlayer.canCarryItem(product, Config.ProductAmount) then
+
+        local xItem = xPlayer.getInventoryItem(product)
+        local count = 1
+    
+        if xItem.limit ~= -1 then
+            count = xItem.limit - xItem.count
+        end
+    
+        if xItem.count < xItem.limit then
             xPlayer.addInventoryItem(product, Config.ProductAmount)
         else
             if Config.UseOkOkNotify then
