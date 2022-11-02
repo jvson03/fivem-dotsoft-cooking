@@ -151,7 +151,7 @@ function OpenStoveMenu()
 						if Config.UseOkOkNotify then
 							exports['okokNotify']:Alert("Stove", Config.Strings.WrongIngredients, 2500, 'info')
 						else
-							ESX.ShowNotification(Config.Strings.WrongIngredients)
+							ESX.ShowNotification(Config.Strings.WrongIngredients, "error", 3000)
 						end
 					end
                 end, ev.current.value)
@@ -193,7 +193,7 @@ function OpenToasterMenu()
 						if Config.UseOkOkNotify then
 							exports['okokNotify']:Alert("Toaster", Config.Strings.WrongIngredients, 2500, 'info')
 						else
-							ESX.ShowNotification(Config.Strings.WrongIngredients)
+							ESX.ShowNotification(Config.Strings.WrongIngredients, "error", 3000)
 						end
 					end
                 end, ev.current.value)
@@ -235,7 +235,7 @@ function OpenMicroMenu()
 						if Config.UseOkOkNotify then
 							exports['okokNotify']:Alert("Microwave", Config.Strings.WrongIngredients, 2500, 'info')
 						else
-							ESX.ShowNotification(Config.Strings.WrongIngredients)
+							ESX.ShowNotification(Config.Strings.WrongIngredients, "error", 3000)
 						end
 					end
                 end, ev.current.value)

@@ -23,7 +23,7 @@ AddEventHandler('dotsoft_cooking:finalProduct', function(product)
             if Config.UseOkOkNotify then
                 TriggerClientEvent('okokNotify:Alert', source, "Error", Config.Strings.NotEnoughSpace, 2500, 'error')
             else
-                ESX.ShowNotification(Config.Strings.NotEnoughSpace)
+                ESX.ShowNotification(Config.Strings.NotEnoughSpace, "error", 3000)
             end
         end
     else
@@ -33,7 +33,7 @@ AddEventHandler('dotsoft_cooking:finalProduct', function(product)
             if Config.UseOkOkNotify then
                 TriggerClientEvent('okokNotify:Alert', source, "Error", Config.Strings.NotEnoughSpace, 2500, 'error')
             else
-                ESX.ShowNotification(Config.Strings.NotEnoughSpace)
+                ESX.ShowNotification(Config.Strings.NotEnoughSpace, "error", 3000)
             end
         end
     end
