@@ -3,17 +3,19 @@
 fx_version 'cerulean'
 game 'gta5'
 
+lua54 'yes'
+
 description 'Cooking Simulator'
 author 'Jvson/JasonTheMan - DotSoft'
 version '1.0.0'
 
+shared_script 'config.lua'
+
 server_scripts {
-	'config.lua',
 	'server/main.lua'
 }
 
 client_scripts {
-	'config.lua',
 	'client/main.lua'
 }
 
